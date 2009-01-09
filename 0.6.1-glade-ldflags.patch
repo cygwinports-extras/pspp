@@ -1,0 +1,26 @@
+libpsppire.la is really just a libglade module (which could go into
+/usr/lib/libglade/2.0/), and g_module_open won't find it if it's versioned.
+
+--- origsrc/pspp-0.6.1/glade/automake.mk	2008-08-18 23:37:52.000000000 -0500
++++ src/pspp-0.6.1/glade/automake.mk	2009-01-09 04:05:25.907750000 -0600
+@@ -44,7 +44,7 @@ dist_large_pixmap_DATA = \
+ 
+ libglade_psppire_la_CFLAGS = $(GLADE_UI_CFLAGS) $(GLADE_CFLAGS) \
+ 	-I $(top_srcdir)/src/ui/gui -DDEBUGGING
+-
+-libglade_psppire_la_LIBADD = gl/libgl.la
++libglade_psppire_la_LDFLAGS = -module -avoid-version -no-undefined
++libglade_psppire_la_LIBADD = $(GLADE_UI_LIBS) gl/libgl.la
+ 
+ EXTRA_DIST += glade/OChangeLog
+--- origsrc/pspp-0.6.1/src/ui/gui/automake.mk	2008-10-09 23:07:44.000000000 -0500
++++ src/pspp-0.6.1/src/ui/gui/automake.mk	2009-01-09 03:20:47.923375000 -0600
+@@ -43,7 +43,7 @@ src_ui_gui_libpsppwidgets_la_SOURCES = \
+ 
+ 
+ src_ui_gui_libpsppire_la_CFLAGS = $(GLADE_CFLAGS) 
+-src_ui_gui_libpsppire_la_LDFLAGS = -no-undefined
++src_ui_gui_libpsppire_la_LDFLAGS = -avoid-version -no-undefined
+ src_ui_gui_libpsppire_la_LIBADD = $(GLADE_LIBS) src/ui/gui/libpsppwidgets.la
+ 
+ src_ui_gui_libpsppire_la_SOURCES = \

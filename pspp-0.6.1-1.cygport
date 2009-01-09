@@ -1,0 +1,19 @@
+DESCRIPTION="GNU replacement for SPSS statistical analysis program"
+HOMEPAGE="http://www.gnu.org/software/pspp/"
+SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
+
+DIFF_EXCLUDES="m4"
+
+CYGCONF_ARGS="--disable-static" # --with-gui-tools"
+MAKEOPTS+=" pkglibdir=/usr/lib"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	rm -f ${D}/usr/lib/charset.alias
+	sed -e '/^shouldnotlink=/ s/=no/=yes/' -i ${D}/usr/lib/libpspp*.la
+
+	newicon ${S}/src/ui/gui/pspplogo.png psppire.png
+	make_desktop_entry psppire "PSPP Data Editor" psppire
+}
