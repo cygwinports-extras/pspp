@@ -1,5 +1,5 @@
 category: Math
-requires: cygwin gsl libgdk_pixbuf2.0_0 libglade2.0_0 libglib2.0_0 libgtk2.0_0 libiconv2 libintl8 libncurses8 libpango1.0_0 libplot2 libpq5 libreadline6 libxml2 zlib
+requires: gsl libgdk_pixbuf2.0_0 libglade2.0_0 libglib2.0_0 libgtk2.0_0 libiconv2 libintl8 libncurses8 libpango1.0_0 libplot2 libpq5 libreadline6 libxml2 zlib
 sdesc: "GNU replacement for SPSS statistical analysis program"
 ldesc: "PSPP is a program for statistical analysis of sampled data. It 
 is a Free replacement for the proprietary program SPSS, and appears very 
