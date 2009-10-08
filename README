@@ -9,33 +9,33 @@ size of the input data. You can use PSPP with its graphical interface or
 the more traditional syntax commands.
 
 Runtime requirements:
-  cygwin-1.5.25-15
-  gsl-1.12-1
-  libgdk_pixbuf2.0_0-2.14.6-1
-  libglade2.0_0-2.6.3-2
-  libglib2.0_0-2.18.3-1
-  libgtk2.0_0-2.14.6-1
-  libiconv2-1.12-1
-  libintl8-0.17-2
-  libncurses8-5.5-3
-  libpango1.0_0-1.22.4-1
-  libplot2-2.5.1-1
-  libpq5-8.2.9-1
-  libreadline6-5.2.13-11
-  libxml2-2.7.2-1
-  zlib-1.2.3-2
+  cygwin-1.7.0-62
+  gsl-1.13-2
+  libgcc1-4.3.4-1
+  libgdk_pixbuf2.0_0-2.16.6-1
+  libglade2.0_0-2.6.4-1
+  libglib2.0_0-2.20.5-1
+  libgtk2.0_0-2.16.6-1
+  libiconv2-1.13-10
+  libintl8-0.17-11
+  libpango1.0_0-1.24.5-1
+  libplot2-2.5-1
+  libpq5-8.2.11-1
+  libreadline7-6.0.3-2
+  libxml2-2.7.3-11
+  zlib0-1.2.3-10
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-1
-  automake1.10-1.10.1-2
-  binutils-20080624-2
-  cygport-0.4.3-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  libtool-2.2.6a-1
-  make-3.81-1
-  pkg-config-0.23a-2
+  autoconf2.5-2.63-10
+  automake1.10-1.10.2-10
+  binutils-2.19.51-1
+  cygport-0.9.9-1
+  gawk-3.1.7-1
+  gcc4-core-4.3.4-1
+  libtool-2.2.7a-14
+  make-3.81-2
+  pkg-config-0.23b-10
   sed-4.1.5-2
 
 Canonical website:
@@ -59,79 +59,10 @@ This will create:
 
 -------------------------------------------
 
-Files included in the binary package:
-
-  /etc/pspp/devices
-  /etc/pspp/psfonts/Courier-Bold.afm
-  /etc/pspp/psfonts/Courier-BoldOblique.afm
-  /etc/pspp/psfonts/Courier-Oblique.afm
-  /etc/pspp/psfonts/Courier.afm
-  /etc/pspp/psfonts/Helvetica-Bold.afm
-  /etc/pspp/psfonts/Helvetica-BoldOblique.afm
-  /etc/pspp/psfonts/Helvetica-Oblique.afm
-  /etc/pspp/psfonts/Helvetica.afm
-  /etc/pspp/psfonts/Times-Bold.afm
-  /etc/pspp/psfonts/Times-BoldItalic.afm
-  /etc/pspp/psfonts/Times-Italic.afm
-  /etc/pspp/psfonts/Times-Roman.afm
-  /usr/bin/cygpsppire.dll
-  /usr/bin/cygpsppwidgets-0.dll
-  /usr/bin/pspp.exe
-  /usr/bin/psppire.exe
-  /usr/lib/libpsppire.la
-  /usr/lib/libpsppwidgets.la
-  /usr/share/doc/pspp-0.6.1/ABOUT-NLS
-  /usr/share/doc/pspp-0.6.1/AUTHORS
-  /usr/share/doc/pspp-0.6.1/COPYING
-  /usr/share/doc/pspp-0.6.1/ChangeLog
-  /usr/share/doc/pspp-0.6.1/INSTALL
-  /usr/share/doc/pspp-0.6.1/NEWS
-  /usr/share/doc/pspp-0.6.1/README
-  /usr/share/doc/pspp-0.6.1/THANKS
-  /usr/share/doc/pspp-0.6.1/TODO
-  /usr/share/info/pspp-dev.info.gz
-  /usr/share/info/pspp.info-1.gz
-  /usr/share/info/pspp.info-2.gz
-  /usr/share/info/pspp.info.gz
-  /usr/share/locale/en_GB/LC_MESSAGES/pspp.mo
-  /usr/share/pspp/crosstabs.glade
-  /usr/share/pspp/data-editor.glade
-  /usr/share/pspp/date-scale.png
-  /usr/share/pspp/descriptives-dialog.glade
-  /usr/share/pspp/examine.glade
-  /usr/share/pspp/frequencies.glade
-  /usr/share/pspp/goto-variable.png
-  /usr/share/pspp/insert-case.png
-  /usr/share/pspp/insert-variable.png
-  /usr/share/pspp/message-dialog.glade
-  /usr/share/pspp/nominal.png
-  /usr/share/pspp/oneway.glade
-  /usr/share/pspp/ordinal.png
-  /usr/share/pspp/output-viewer.glade
-  /usr/share/pspp/psppicon.png
-  /usr/share/pspp/psppire.glade
-  /usr/share/pspp/pspplogo.png
-  /usr/share/pspp/rank.glade
-  /usr/share/pspp/recent-dialogs.png
-  /usr/share/pspp/recode.glade
-  /usr/share/pspp/regression.glade
-  /usr/share/pspp/scale.png
-  /usr/share/pspp/select-cases.png
-  /usr/share/pspp/splash.png
-  /usr/share/pspp/split-file.png
-  /usr/share/pspp/string.png
-  /usr/share/pspp/syntax-editor.glade
-  /usr/share/pspp/t-test.glade
-  /usr/share/pspp/text-data-import.glade
-  /usr/share/pspp/value-labels.png
-  /usr/share/pspp/weight-cases.png
-
-------------------
-
 Port Notes:
 
------ version 0.6.1-1 -----
-Initial release for Cygwin.
+----- version 0.6.1-2 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
