@@ -1,19 +1,22 @@
 DESCRIPTION="GNU replacement for SPSS statistical analysis program"
 HOMEPAGE="http://www.gnu.org/software/pspp/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
-PATCH_URI="0.6.1-glade-ldflags.patch"
+
+PATCH_URI="
+	0.6.1-glade-ldflags.patch
+	0.6.2-gtk2_22.patch
+"
 
 DIFF_EXCLUDES="m4"
 
+CPPFLAGS+=" -I/usr/include/ncurses"
 CYGCONF_ARGS="--disable-static" # --with-gui-tools"
-MAKEOPTS+=" pkglibdir=/usr/lib"
 
 src_install() {
 	cd ${B}
 	cyginstall
 
 	rm -f ${D}/usr/lib/charset.alias
-	sed -e '/^shouldnotlink=/ s/=no/=yes/' -i ${D}/usr/lib/libpspp*.la
 
 	newicon ${S}/src/ui/gui/pspplogo.png psppire.png
 	make_desktop_entry psppire "PSPP Data Editor" psppire
