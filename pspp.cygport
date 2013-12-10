@@ -1,0 +1,33 @@
+NAME="pspp"
+VERSION=0.6.2
+RELEASE=1
+CATEGORY="Math"
+SUMMARY="GNU replacement for SPSS statistical analysis program"
+DESCRIPTION="PSPP is a program for statistical analysis of sampled data. It
+is a Free replacement for the proprietary program SPSS, and appears very
+similar to it with a few exceptions. PSPP can perform descriptive statistics,
+T-tests, linear regression and non-parametric tests. Its backend is designed to
+perform its analyses as fast as possible, regardless of the size of the input
+data. You can use PSPP with its graphical interface or the more traditional
+syntax commands."
+HOMEPAGE="http://www.gnu.org/software/pspp/"
+SRC_URI="mirror://gnu/pspp/pspp-${VERSION}.tar.gz"
+PATCH_URI="
+	0.6.1-glade-ldflags.patch
+	0.6.2-gtk2_22.patch
+"
+
+DIFF_EXCLUDES="m4"
+
+CPPFLAGS+=" -I/usr/include/ncurses"
+CYGCONF_ARGS="--disable-static" # --with-gui-tools"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	rm -f ${D}/usr/lib/charset.alias
+
+	newicon ${S}/src/ui/gui/pspplogo.png psppire.png
+	make_desktop_entry psppire "PSPP Data Editor" psppire
+}
