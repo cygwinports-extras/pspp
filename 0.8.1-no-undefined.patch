@@ -1,0 +1,40 @@
+--- origsrc/pspp-0.8.1/glade/automake.mk	2013-12-10 02:26:42.795217300 -0600
++++ src/pspp-0.8.1/glade/automake.mk	2013-12-09 23:32:25.000000000 -0600
+@@ -51,7 +51,7 @@ dist_large_pixmap_DATA = \
+ 
+ libglade_psppire_la_CFLAGS = $(GLADE_UI_CFLAGS) $(GLADE_CFLAGS) \
+ 	$(GTKSOURCEVIEW_CFLAGS) -I $(top_srcdir)/src/ui/gui -DDEBUGGING
+-
+-libglade_psppire_la_LIBADD = gl/libgl.la
++libglade_psppire_la_LDFLAGS = -module -avoid-version -no-undefined
++libglade_psppire_la_LIBADD = $(GLADE_UI_LIBS) gl/libgl.la
+ 
+ EXTRA_DIST += glade/OChangeLog
+--- origsrc/pspp-0.8.1/src/automake.mk	2013-01-31 01:03:38.000000000 -0600
++++ src/pspp-0.8.1/src/automake.mk	2013-12-10 00:37:32.866582800 -0600
+@@ -14,7 +14,7 @@ pkglib_LTLIBRARIES = src/libpspp-core.la
+ src_libpspp_core_la_SOURCES = 
+ 
+ 
+-src_libpspp_core_la_LDFLAGS = -release $(VERSION)
++src_libpspp_core_la_LDFLAGS = -release $(VERSION) -no-undefined
+ 
+ src_libpspp_core_la_LIBADD = \
+ 	src/data/libdata.la \
+@@ -25,13 +25,14 @@ src_libpspp_core_la_LIBADD = \
+ src_libpspp_la_SOURCES = 
+ 
+ src_libpspp_la_CFLAGS = $(GSL_CFLAGS)
+-src_libpspp_la_LDFLAGS = -release $(VERSION)
++src_libpspp_la_LDFLAGS = -release $(VERSION) -no-undefined
+ 
+ src_libpspp_la_LIBADD = \
+ 	src/language/liblanguage.la \
+ 	src/math/libpspp-math.la \
+ 	src/output/liboutput.la \
+-        $(GSL_LIBS)
++	src/libpspp-core.la \
++        $(CAIRO_LIBS) $(GSL_LIBS)
+ 
+ include $(top_srcdir)/src/math/automake.mk
+ include $(top_srcdir)/src/output/automake.mk

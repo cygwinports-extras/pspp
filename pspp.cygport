@@ -1,5 +1,5 @@
 NAME="pspp"
-VERSION=0.6.2
+VERSION=0.8.1
 RELEASE=1
 CATEGORY="Math"
 SUMMARY="GNU replacement for SPSS statistical analysis program"
@@ -13,21 +13,15 @@ syntax commands."
 HOMEPAGE="http://www.gnu.org/software/pspp/"
 SRC_URI="mirror://gnu/pspp/pspp-${VERSION}.tar.gz"
 PATCH_URI="
-	0.6.1-glade-ldflags.patch
-	0.6.2-gtk2_22.patch
+	0.8.1-no-undefined.patch
+	0.8.1-perl-module.patch
 "
 
-DIFF_EXCLUDES="m4"
-
-CPPFLAGS+=" -I/usr/include/ncurses"
-CYGCONF_ARGS="--disable-static" # --with-gui-tools"
+DIFF_EXCLUDES="doc"
 
 src_install() {
 	cd ${B}
 	cyginstall
-
-	rm -f ${D}/usr/lib/charset.alias
-
-	newicon ${S}/src/ui/gui/pspplogo.png psppire.png
-	make_desktop_entry psppire "PSPP Data Editor" psppire
+	cd ${B}/perl-module
+	cyginstall
 }
