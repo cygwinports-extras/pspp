@@ -1,5 +1,5 @@
 NAME="pspp"
-VERSION=0.8.1
+VERSION=0.8.4
 RELEASE=1
 CATEGORY="Math"
 SUMMARY="GNU replacement for SPSS statistical analysis program"
@@ -25,3 +25,5 @@ src_install() {
 	cd ${B}/perl-module
 	cyginstall
 }
+
+KEEP_LA_FILES="none"
