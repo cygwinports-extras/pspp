@@ -1,5 +1,5 @@
 NAME="pspp"
-VERSION=0.8.4
+VERSION=0.8.5
 RELEASE=1
 CATEGORY="Math"
 SUMMARY="GNU replacement for SPSS statistical analysis program"
